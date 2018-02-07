@@ -1,7 +1,7 @@
 package models.buildings;
 
-public class Mennica extends Building {
-    public Mennica() {
+public class Mint extends Building {
+    Mint() {
         super();
         this.cost = 10000;
         this.revenue = 3000;
@@ -9,21 +9,21 @@ public class Mennica extends Building {
 
     @Override
     public String toString() {
-        return "Mennica";
+        return "Mint";
     }
 
     @Override
     public void buildFloor() {
-        System.out.println("Buduję podłogę Mennicy");
+        System.out.println("Building floor of " + toString());
     }
 
     @Override
     public void buildWalls() {
-        System.out.println("Buduję ściany Mennicy");
+        System.out.println("Building walls of " + toString());
     }
 
     @Override
     public void buildRoof() {
-        System.out.println("Buduję dach Mennicy");
+        System.out.println("Building roof of " + toString());
     }
 }

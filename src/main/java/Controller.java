@@ -50,21 +50,21 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
         boardPane = new BoardPane(this);
         boardPaneHolder.getChildren().add(boardPane);
 
-        button_chatka.setOnAction(event -> active = Buildings.ChatkaDrwala);
+        button_chatka.setOnAction(event -> active = Buildings.LUMBERJACK_HUT);
 
-        button_kamieniolom.setOnAction(event -> active = Buildings.Kamieniolom);
+        button_kamieniolom.setOnAction(event -> active = Buildings.QUARRY);
 
-        button_tartak.setOnAction(event -> active = Buildings.Tartak);
+        button_tartak.setOnAction(event -> active = Buildings.SAWMILL);
 
         button_kopalnia.setOnAction(event -> {
-            if (Controller.this.hasRequiredBuildings()) {
-                active = Buildings.Kopalnia;
+            if (hasRequiredBuildings()) {
+                active = Buildings.MINE;
             }
         });
 
         button_mennica.setOnAction(event -> {
-            if (Controller.this.hasRequiredBuildings()) {
-                active = Buildings.Mennica;
+            if (hasRequiredBuildings()) {
+                active = Buildings.MINT;
             }
         });
 
@@ -86,7 +86,6 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
         buildingUpdater = new Thread(() -> {
             while (true) {
                 try {
-                    System.out.println(careTaker.mementoList);
                     for (Building building : buildings){
                         player.addMoney(building.getRevenue());
                     }
@@ -108,9 +107,9 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
     private boolean hasRequiredBuildings(){
         boolean hasTartak = false, hasKamieniolom = false, hasChatka = false;
         for (Building building : buildings) {
-            if(building instanceof ChatkaDrwala) hasChatka = true;
-            if(building instanceof Kamieniolom) hasKamieniolom = true;
-            if(building instanceof Tartak) hasTartak = true;
+            if(building instanceof LumberjackHut) hasChatka = true;
+            if(building instanceof Quarry) hasKamieniolom = true;
+            if(building instanceof Sawmill) hasTartak = true;
         }
         return (hasChatka && hasKamieniolom && hasTartak);
     }
@@ -152,7 +151,6 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
                 originator.setState(new State((ArrayList<Building>) Copier.copy(buildings), (Player) Copier.copy(player), (Board) Copier.copy(board)));
                 careTaker.add(originator.saveStateToMemento());
                 movecount++;
-                System.out.println(movecount);
                 updateBuildings();
             }
         }

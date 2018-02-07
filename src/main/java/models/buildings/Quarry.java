@@ -1,7 +1,7 @@
 package models.buildings;
 
-public class Kamieniolom extends Building {
-    public Kamieniolom() {
+public class Quarry extends Building {
+    Quarry() {
         super();
         this.cost = 500;
         this.revenue = 200;
@@ -9,21 +9,21 @@ public class Kamieniolom extends Building {
 
     @Override
     public String toString() {
-        return "Berga";
+        return "Quarry";
     }
 
     @Override
     public void buildFloor() {
-        System.out.println("Kopię dół");
+        System.out.println("Building floor of " + toString());
     }
 
     @Override
     public void buildWalls() {
-        System.out.println("Buduję ściany Bergi");
+        System.out.println("Building walls of " + toString());
     }
 
     @Override
     public void buildRoof() {
-        System.out.println("Buduję zadaszenie nad Bergą");
+        System.out.println("Building roof of " + toString());
     }
 }

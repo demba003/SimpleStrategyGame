@@ -4,20 +4,20 @@ import models.Board;
 import models.Player;
 import models.buildings.Building;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class State {
-    private ArrayList<Building> buildings;
+    private List<Building> buildings;
     private Player player;
     private Board board;
 
-    public State(ArrayList<Building> buildings, Player player, Board board) {
+    public State(List<Building> buildings, Player player, Board board) {
         this.buildings = buildings;
         this.player = player;
         this.board = board;
     }
 
-    public ArrayList<Building> getBuildings() {
+    public List<Building> getBuildings() {
         return this.buildings;
     }
 

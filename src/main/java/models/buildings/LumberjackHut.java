@@ -1,7 +1,7 @@
 package models.buildings;
 
-public class ChatkaDrwala extends Building {
-    public ChatkaDrwala() {
+public class LumberjackHut extends Building {
+    LumberjackHut() {
         super();
         this.cost = 1500;
         this.revenue = 300;
@@ -9,21 +9,21 @@ public class ChatkaDrwala extends Building {
 
     @Override
     public String toString() {
-        return "Chałpa drwala";
+        return "Lumberjack hut";
     }
 
     @Override
     public void buildFloor() {
-        System.out.println("Buduję podłogę Chałpy Drwala");
+        System.out.println("Building floor of " + toString());
     }
 
     @Override
     public void buildWalls() {
-        System.out.println("Buduję ściany Chałpy Drwala");
+        System.out.println("Building walls of " + toString());
     }
 
     @Override
     public void buildRoof() {
-        System.out.println("Buduję dach Chałpy Drwala");
+        System.out.println("Building roof of " + toString());
     }
 }

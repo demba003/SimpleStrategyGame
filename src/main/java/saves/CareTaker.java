@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CareTaker {
-    public List<Memento> mementoList = new ArrayList<>();
+    private List<Memento> mementoList = new ArrayList<>();
 
     public void add(Memento memento){
         mementoList.add(memento);

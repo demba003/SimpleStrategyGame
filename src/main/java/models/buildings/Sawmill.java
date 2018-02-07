@@ -1,7 +1,7 @@
 package models.buildings;
 
-public class Tartak extends Building {
-    public Tartak() {
+public class Sawmill extends Building {
+    Sawmill() {
         super();
         this.cost = 3000;
         this.revenue = 500;
@@ -9,21 +9,21 @@ public class Tartak extends Building {
 
     @Override
     public String toString() {
-        return "Tartak";
+        return "Sawmill";
     }
 
     @Override
     public void buildFloor() {
-        System.out.println("Buduję podłogę Tartaku");
+        System.out.println("Building floor of " + toString());
     }
 
     @Override
     public void buildWalls() {
-        System.out.println("Buduję ściany Tartakua");
+        System.out.println("Building walls of " + toString());
     }
 
     @Override
     public void buildRoof() {
-        System.out.println("Buduję dach Tartakua");
+        System.out.println("Building roof of " + toString());
     }
 }

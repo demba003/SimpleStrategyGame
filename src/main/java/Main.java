@@ -21,7 +21,6 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(e -> controller.onWindowClose());
 
         primaryStage.show();
-
     }
 
     public static void main(String[] args) {

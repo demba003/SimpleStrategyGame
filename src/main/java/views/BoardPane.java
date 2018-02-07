@@ -7,14 +7,19 @@ import javafx.scene.layout.Pane;
 import models.Board;
 
 
-import java.io.Serializable;
-
-
-public class BoardPane extends Pane implements Serializable{
-    private int sizeX = 7, sizeY = 5;
-    private Button[][] buttons = new Button[sizeY][sizeX];
+public class BoardPane extends Pane {
+    private int sizeX, sizeY;
+    private Button[][] buttons;
 
     public BoardPane(EventHandler<ActionEvent> buttonHandler) {
+        this(buttonHandler, 7, 5);
+    }
+
+    public BoardPane(EventHandler<ActionEvent> buttonHandler, int sizeX, int sizeY) {
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        buttons = new Button[sizeY][sizeX];
+
         for (int row = 0; row < sizeY; row++) {
             for (int column = 0; column < sizeX; column++){
                 buttons[row][column] = new Button();

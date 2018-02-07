@@ -5,10 +5,17 @@ import models.buildings.Building;
 import java.io.Serializable;
 
 public class Board implements Serializable {
-    private int sizeX = 7, sizeY = 5;
-    private Building[][] board = new Building[sizeY][sizeX];
+    private int sizeX, sizeY;
+    private Building[][] board;
 
     public Board() {
+        this(7,5);
+    }
+
+    public Board(int sizeX, int sizeY) {
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        board = new Building[sizeY][sizeX];
     }
 
     public void set(int row, int column, Building building){

@@ -2,18 +2,19 @@ package models.buildings;
 
 public class BuildingFactory {
     public static Building build(Buildings buildings){
-        switch (buildings){
-            case Tartak:
-                return new Tartak();
-            case Mennica:
-                return new Mennica();
-            case Kopalnia:
-                return new Kopalnia();
-            case Kamieniolom:
-                return new Kamieniolom();
-            case ChatkaDrwala:
-                return new ChatkaDrwala();
+        switch (buildings) {
+            case SAWMILL:
+                return new Sawmill();
+            case MINT:
+                return new Mint();
+            case MINE:
+                return new Mine();
+            case QUARRY:
+                return new Quarry();
+            case LUMBERJACK_HUT:
+                return new LumberjackHut();
+            default:
+                return null;
         }
-        return null;
     }
 }

@@ -1,5 +1,5 @@
 package models.buildings;
 
 public enum Buildings {
-    ChatkaDrwala, Kamieniolom, Kopalnia, Mennica, Tartak
+    LUMBERJACK_HUT, QUARRY, MINE, MINT, SAWMILL
 }
