@@ -1,4 +1,4 @@
-package models.buildings;
+package ot.game.models.buildings;
 
 public class Sawmill extends Building {
     Sawmill() {

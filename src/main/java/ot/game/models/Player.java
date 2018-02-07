@@ -1,8 +1,11 @@
-package models;
+package ot.game.models;
 
+
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
+@Component
 public class Player implements Serializable {
     private int money;
 

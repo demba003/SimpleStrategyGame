@@ -9,6 +9,11 @@
     <version>1.4</version>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.3.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -18,7 +23,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>ot.game.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

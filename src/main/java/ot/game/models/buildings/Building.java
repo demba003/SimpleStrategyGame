@@ -1,4 +1,4 @@
-package models.buildings;
+package ot.game.models.buildings;
 
 import java.io.Serializable;
 

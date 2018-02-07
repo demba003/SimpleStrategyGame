@@ -1,4 +1,9 @@
-import java.io.*;
+package ot.game;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class Copier {
     public static Object copy(Object object){

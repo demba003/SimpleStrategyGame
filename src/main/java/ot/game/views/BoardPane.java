@@ -1,10 +1,10 @@
-package views;
+package ot.game.views;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import models.Board;
+import ot.game.models.Board;
 
 
 public class BoardPane extends Pane {

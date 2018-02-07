@@ -1,8 +1,11 @@
-package saves;
+package ot.game.saves;
+
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CareTaker {
     private List<Memento> mementoList = new ArrayList<>();
 

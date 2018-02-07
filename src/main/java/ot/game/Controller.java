@@ -1,3 +1,5 @@
+package ot.game;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -5,18 +7,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import models.Board;
-import views.BoardPane;
-import models.buildings.*;
-import models.Player;
-import saves.CareTaker;
-import saves.Originator;
-import saves.State;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ot.game.models.Board;
+import ot.game.views.BoardPane;
+import ot.game.models.buildings.*;
+import ot.game.models.Player;
+import ot.game.saves.CareTaker;
+import ot.game.saves.Originator;
+import ot.game.saves.State;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
+@Service("controllerService")
 public class Controller implements Initializable, EventHandler<ActionEvent>{
     @FXML private Pane boardPaneHolder;
     @FXML private Button button_mennica;
@@ -30,22 +36,18 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
 
     private Buildings active;
     private Thread buildingUpdater;
-    private Originator originator;
-    private CareTaker careTaker;
     private int movecount = -1;
+    private List<Building> buildings;
 
-    private ArrayList<Building> buildings;
-    private Player player;
+    @Autowired private Originator originator;
+    @Autowired private CareTaker careTaker;
+    @Autowired private Player player;
+    @Autowired private Board board;
     private BoardPane boardPane;
-    private Board board;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buildings = new ArrayList<>();
-        player = new Player();
-        originator = new Originator();
-        careTaker = new CareTaker();
-        board = new Board();
 
         boardPane = new BoardPane(this);
         boardPaneHolder.getChildren().add(boardPane);
@@ -57,15 +59,11 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
         button_tartak.setOnAction(event -> active = Buildings.SAWMILL);
 
         button_kopalnia.setOnAction(event -> {
-            if (hasRequiredBuildings()) {
-                active = Buildings.MINE;
-            }
+            if (hasRequiredBuildings()) active = Buildings.MINE;
         });
 
         button_mennica.setOnAction(event -> {
-            if (hasRequiredBuildings()) {
-                active = Buildings.MINT;
-            }
+            if (hasRequiredBuildings()) active = Buildings.MINT;
         });
 
         button_back.setOnAction(event -> {
@@ -73,7 +71,7 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
                 movecount--;
                 originator.getStateFromMemento(careTaker.get(movecount));
 
-                buildings = (ArrayList<Building>) Copier.copy(originator.getState().getBuildings());
+                buildings = (List<Building>) Copier.copy(originator.getState().getBuildings());
                 board = (Board) Copier.copy(originator.getState().getBoardPane());
                 player = (Player) Copier.copy(originator.getState().getPlayer());
 
@@ -99,19 +97,19 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
 
         buildingUpdater.start();
 
-        originator.setState(new State((ArrayList<Building>) Copier.copy(buildings), (Player) Copier.copy(player), (Board) Copier.copy(board)));
+        originator.setState(new State((List<Building>) Copier.copy(buildings), (Player) Copier.copy(player), (Board) Copier.copy(board)));
         careTaker.add(originator.saveStateToMemento());
         movecount++;
     }
 
     private boolean hasRequiredBuildings(){
-        boolean hasTartak = false, hasKamieniolom = false, hasChatka = false;
+        boolean hasSawmill = false, hasQuarry = false, hasLumberjackHut = false;
         for (Building building : buildings) {
-            if(building instanceof LumberjackHut) hasChatka = true;
-            if(building instanceof Quarry) hasKamieniolom = true;
-            if(building instanceof Sawmill) hasTartak = true;
+            if(building instanceof LumberjackHut) hasLumberjackHut = true;
+            if(building instanceof Quarry) hasQuarry = true;
+            if(building instanceof Sawmill) hasSawmill = true;
         }
-        return (hasChatka && hasKamieniolom && hasTartak);
+        return (hasLumberjackHut && hasQuarry && hasSawmill);
     }
 
     private void updateBuildings() {
@@ -137,7 +135,7 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
     public void handle(ActionEvent event) {
         if(active != null){
             Building building = BuildingFactory.build(active);
-            if (player.buy(building.getCost())){
+            if (building != null && player.buy(building.getCost())){
                 Button button = (Button) event.getSource();
                 button.setText(building.toString());
                 button.setDisable(true);

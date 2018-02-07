@@ -1,4 +1,4 @@
-package saves;
+package ot.game.saves;
 
 
 public class Memento {

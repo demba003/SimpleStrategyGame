@@ -1,8 +1,8 @@
-package saves;
+package ot.game.saves;
 
-import models.Board;
-import models.Player;
-import models.buildings.Building;
+import ot.game.models.Board;
+import ot.game.models.Player;
+import ot.game.models.buildings.Building;
 
 import java.util.List;
 

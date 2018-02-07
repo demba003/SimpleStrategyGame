@@ -1,9 +1,11 @@
-package models;
+package ot.game.models;
 
-import models.buildings.Building;
+import org.springframework.stereotype.Component;
+import ot.game.models.buildings.Building;
 
 import java.io.Serializable;
 
+@Component
 public class Board implements Serializable {
     private int sizeX, sizeY;
     private Building[][] board;
