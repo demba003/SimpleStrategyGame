@@ -2,7 +2,7 @@ package ot.game.saves;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("originatorComponent")
 public class Originator {
     private State state;
 

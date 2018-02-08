@@ -8,8 +8,8 @@ import ot.game.models.Board;
 
 
 public class BoardPane extends Pane {
-    private int sizeX, sizeY;
-    private Button[][] buttons;
+    private final int sizeX, sizeY;
+    private final Button[][] buttons;
 
     public BoardPane(EventHandler<ActionEvent> buttonHandler) {
         this(buttonHandler, 7, 5);

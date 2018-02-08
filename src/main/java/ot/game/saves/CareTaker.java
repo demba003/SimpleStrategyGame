@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Component("careTakerComponent")
 public class CareTaker {
-    private List<Memento> mementoList = new ArrayList<>();
+    private final List<Memento> mementoList = new ArrayList<>();
 
     public void add(Memento memento){
         mementoList.add(memento);

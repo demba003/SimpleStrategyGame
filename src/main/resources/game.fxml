@@ -18,18 +18,18 @@
          <children>
             <VBox>
                <children>
-                  <Button fx:id="button_mennica" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Mennica &#10;koszt: 10000&#10;zysk: +3000" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="button_mint" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Mennica &#10;koszt: 10000&#10;zysk: +3000" textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets top="-3.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="button_kopalnia" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Gruba złota&#10;koszt: 5000&#10;zysk: +100" textAlignment="CENTER">
+                  <Button fx:id="button_mine" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Gruba złota&#10;koszt: 5000&#10;zysk: +100" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin></Button>
-                  <Button fx:id="button_tartak" layoutX="10.0" layoutY="110.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Tartak&#10;koszt: 3000&#10;zysk: +500" textAlignment="CENTER" />
-                  <Button fx:id="button_chatka" layoutX="10.0" layoutY="310.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Chałpa drwala&#10;koszt: 1500&#10;zysk: +300" textAlignment="CENTER" />
-                  <Button fx:id="button_kamieniolom" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Berga&#10;koszt: 500&#10;zysk: +200" textAlignment="CENTER" />
+                  <Button fx:id="button_sawmill" layoutX="10.0" layoutY="110.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Tartak&#10;koszt: 3000&#10;zysk: +500" textAlignment="CENTER" />
+                  <Button fx:id="button_hut" layoutX="10.0" layoutY="310.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Chałpa drwala&#10;koszt: 1500&#10;zysk: +300" textAlignment="CENTER" />
+                  <Button fx:id="button_quarry" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Berga&#10;koszt: 500&#10;zysk: +200" textAlignment="CENTER" />
                </children>
             </VBox>
          </children>
@@ -59,9 +59,7 @@
                </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Button fx:id="button_back" minWidth="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Cofnij ruch" />
-               </children>
+               <Button fx:id="button_back" minWidth="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Cofnij ruch"/>
             </HBox>
             <!--<Text layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bieżące przychody:">
                <HBox.margin>

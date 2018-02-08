@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 import ot.game.models.Board;
 import ot.game.views.BoardPane;
 import ot.game.models.buildings.*;
@@ -22,14 +22,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-@Service("controllerService")
-public class Controller implements Initializable, EventHandler<ActionEvent>{
+@Controller("gameController")
+public class GameController implements Initializable, EventHandler<ActionEvent>{
     @FXML private Pane boardPaneHolder;
-    @FXML private Button button_mennica;
-    @FXML private Button button_kopalnia;
-    @FXML private Button button_tartak;
-    @FXML private Button button_kamieniolom;
-    @FXML private Button button_chatka;
+    @FXML private Button button_mint;
+    @FXML private Button button_mine;
+    @FXML private Button button_sawmill;
+    @FXML private Button button_quarry;
+    @FXML private Button button_hut;
     @FXML private Button button_back;
     @FXML private Text player_gold;
     //@FXML private Text player_revenue;
@@ -52,17 +52,17 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
         boardPane = new BoardPane(this);
         boardPaneHolder.getChildren().add(boardPane);
 
-        button_chatka.setOnAction(event -> active = Buildings.LUMBERJACK_HUT);
+        button_hut.setOnAction(event -> active = Buildings.LUMBERJACK_HUT);
 
-        button_kamieniolom.setOnAction(event -> active = Buildings.QUARRY);
+        button_quarry.setOnAction(event -> active = Buildings.QUARRY);
 
-        button_tartak.setOnAction(event -> active = Buildings.SAWMILL);
+        button_sawmill.setOnAction(event -> active = Buildings.SAWMILL);
 
-        button_kopalnia.setOnAction(event -> {
+        button_mine.setOnAction(event -> {
             if (hasRequiredBuildings()) active = Buildings.MINE;
         });
 
-        button_mennica.setOnAction(event -> {
+        button_mint.setOnAction(event -> {
             if (hasRequiredBuildings()) active = Buildings.MINT;
         });
 
@@ -88,7 +88,7 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
                         player.addMoney(building.getRevenue());
                     }
                     updateBuildings();
-                    Thread.sleep(3000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     break;
                 }
@@ -115,20 +115,20 @@ public class Controller implements Initializable, EventHandler<ActionEvent>{
     private void updateBuildings() {
         player_gold.setText(String.valueOf(player.getMoney()));
 
-        if(player.getMoney() >= 10000 && hasRequiredBuildings()) button_mennica.setDisable(false);
-        else button_mennica.setDisable(true);
+        if(player.getMoney() >= 10000 && hasRequiredBuildings()) button_mint.setDisable(false);
+        else button_mint.setDisable(true);
 
-        if(player.getMoney() >= 5000 && hasRequiredBuildings()) button_kopalnia.setDisable(false);
-        else button_kopalnia.setDisable(true);
+        if(player.getMoney() >= 5000 && hasRequiredBuildings()) button_mine.setDisable(false);
+        else button_mine.setDisable(true);
 
-        if(player.getMoney() >= 3000) button_tartak.setDisable(false);
-        else button_tartak.setDisable(true);
+        if(player.getMoney() >= 3000) button_sawmill.setDisable(false);
+        else button_sawmill.setDisable(true);
 
-        if(player.getMoney() >= 500) button_kamieniolom.setDisable(false);
-        else button_kamieniolom.setDisable(true);
+        if(player.getMoney() >= 500) button_quarry.setDisable(false);
+        else button_quarry.setDisable(true);
 
-        if(player.getMoney() >= 1500) button_chatka.setDisable(false);
-        else button_chatka.setDisable(true);
+        if(player.getMoney() >= 1500) button_hut.setDisable(false);
+        else button_hut.setDisable(true);
     }
 
     @Override

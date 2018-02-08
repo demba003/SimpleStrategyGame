@@ -2,7 +2,7 @@ package ot.game.saves;
 
 
 public class Memento {
-    private State state;
+    private final State state;
 
     public Memento(State state){
         this.state = state;

@@ -18,9 +18,9 @@ public abstract class Building implements Serializable{
         return cost;
     }
 
-    public abstract void buildFloor();
-    public abstract void buildWalls();
-    public abstract void buildRoof();
+    protected abstract void buildFloor();
+    protected abstract void buildWalls();
+    protected abstract void buildRoof();
 
     void build(){
         buildFloor();

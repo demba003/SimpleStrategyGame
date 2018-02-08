@@ -5,10 +5,10 @@ import ot.game.models.buildings.Building;
 
 import java.io.Serializable;
 
-@Component
+@Component("boardComponent")
 public class Board implements Serializable {
-    private int sizeX, sizeY;
-    private Building[][] board;
+    private final int sizeX, sizeY;
+    private final Building[][] board;
 
     public Board() {
         this(7,5);

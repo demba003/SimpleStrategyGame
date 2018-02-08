@@ -19,7 +19,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("game.fxml"));
-        Controller controller = appContext.getBean("controllerService", Controller.class);
+        GameController controller = appContext.getBean("gameController", GameController.class);
         fxmlLoader.setController(controller);
         Parent root = fxmlLoader.load();
 

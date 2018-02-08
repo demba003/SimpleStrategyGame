@@ -5,7 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class Copier {
+class Copier {
     public static Object copy(Object object){
         try {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();

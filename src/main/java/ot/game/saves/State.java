@@ -7,9 +7,9 @@ import ot.game.models.buildings.Building;
 import java.util.List;
 
 public class State {
-    private List<Building> buildings;
-    private Player player;
-    private Board board;
+    private final List<Building> buildings;
+    private final Player player;
+    private final Board board;
 
     public State(List<Building> buildings, Player player, Board board) {
         this.buildings = buildings;
